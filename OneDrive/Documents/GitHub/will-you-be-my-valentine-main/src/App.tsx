@@ -11,10 +11,15 @@ export default function Page() {
     const url = new URL(window.location.href);
 
     // Get the value of the 'name' parameter
-    const name = url.searchParams.get('name');
+    let name = url.searchParams.get('name');
+
+    // If 'name' is not set, assign an empty string
+    if (!name) {
+        name = "";
+    }
 
     setNameParam(name);
-  },[])
+}, []);
 
   const [noCount, setNoCount] = useState(0);
   const [yesPressed, setYesPressed] = useState(false);
